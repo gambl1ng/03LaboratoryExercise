@@ -43,20 +43,56 @@ namespace _03LaboratoryExercise
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            StudentInformationClass.SetFullName = FullName(txtLastName.Text, txtFirstName.Text, txtMiddleInitial.Text);
-            StudentInformationClass.SetStudentNo = StudentNumber(txtStudentNo.Text); 
-            StudentInformationClass.SetProgram = cbPrograms.Text;
-            StudentInformationClass.SetGender = cbGender.Text;
-            StudentInformationClass.SetContactNo = ContactNo(txtContactNo.Text);
-            StudentInformationClass.SetAge = Age(txtAge.Text); 
-            StudentInformationClass.SetBirthday = datePickerBirthday.Value.ToString("yyyy-MM-dd"); 
+            try
+            {
+                StudentInformationClass.SetFullName = FullName(txtLastName.Text, txtFirstName.Text, txtMiddleInitial.Text);
+                StudentInformationClass.SetStudentNo = StudentNumber(txtStudentNo.Text);
+                StudentInformationClass.SetProgram = cbPrograms.Text;
+                StudentInformationClass.SetGender = cbGender.Text;
+                StudentInformationClass.SetContactNo = ContactNo(txtContactNo.Text);
+                StudentInformationClass.SetAge = Age(txtAge.Text);
+                StudentInformationClass.SetBirthday = datePickerBirthday.Value.ToString("yyyy-MM-dd");
 
-            frmConfirmation frm = new frmConfirmation();
-            frm.ShowDialog();
+                frmConfirmation frm = new frmConfirmation();
+                frm.ShowDialog();
+            }
+            catch (FormatException f)
+            {
+                MessageBox.Show(f.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (ArgumentNullException a)
+            {
+                MessageBox.Show(a.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (OverflowException o)
+            {
+                MessageBox.Show(o.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (IndexOutOfRangeException i)
+            {
+                MessageBox.Show(i.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                txtStudentNo.Text = "";
+                txtLastName.Text = "";
+                txtFirstName.Text = "";
+                txtMiddleInitial.Text = "";
+                txtContactNo.Text = "";
+                txtAge.Text = "";
+            }
         }
-        public long StudentNumber(string studNum)
+public long StudentNumber(string studNum)
         {
-            _StudentNo = long.Parse(studNum);
+            long tempStudentNo;
+            if (long.TryParse(studNum, out tempStudentNo))
+            {
+                _StudentNo = tempStudentNo;
+            }
+            else
+            {
+                throw new FormatException("Invalid student number. Ensure you only use digits and it has the correct length.");
+            }
             return _StudentNo;
         }
         public long ContactNo(string Contact)
@@ -65,21 +101,38 @@ namespace _03LaboratoryExercise
             {
                 _ContactNo = long.Parse(Contact);
             }
+            else
+            {
+                throw new FormatException("The contact number format is incorrect. It must be 11 digits long only.");
+            }
             return _ContactNo;
         }
         public string FullName(string LastName, string FirstName, string MiddleInitial)
         {
-            if (Regex.IsMatch(LastName, @"^[a-zA-Z]+$") || Regex.IsMatch(FirstName, @"^[a-zA-Z]+$") || Regex.IsMatch(MiddleInitial, @"^[a-zA-Z]+$"))
+            if (Regex.IsMatch(LastName, @"^[a-zA-Z]+$") && Regex.IsMatch(FirstName, @"^[a-zA-Z]+$") && Regex.IsMatch(MiddleInitial, @"^[a-zA-Z]+$"))
             {
                 _FullName = LastName + ", " + FirstName + ", " + MiddleInitial;
+            }
+            else
+            {
+                throw new FormatException("Invalid characters in the name. Only letters are permitted.");
             }
             return _FullName;
         }
         public int Age(string age)
         {
-            if (Regex.IsMatch(age, @"^[0-9]{1,3}$"))
+            int tempAge;
+            if (int.TryParse(age, out tempAge))
             {
-                _Age = Int32.Parse(age);
+                if (tempAge < 0 || tempAge > 100)
+                {
+                    throw new OverflowException("The age is outside of a valid range.");
+                }
+                _Age = tempAge;
+            }
+            else
+            {
+                throw new FormatException("The age must be a whole number.");
             }
             return _Age;
         }

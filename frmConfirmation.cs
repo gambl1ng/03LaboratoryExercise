@@ -27,5 +27,10 @@ namespace _03LaboratoryExercise
             lblContactNo.Text = StudentInformationClass.SetContactNo.ToString();
             lblAge.Text = StudentInformationClass.SetAge.ToString();
         }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Congratulations! Registration successful!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

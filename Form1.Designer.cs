@@ -191,7 +191,7 @@
             // 
             // txtContactNo
             // 
-            this.txtContactNo.Location = new System.Drawing.Point(440, 249);
+            this.txtContactNo.Location = new System.Drawing.Point(449, 249);
             this.txtContactNo.Name = "txtContactNo";
             this.txtContactNo.Size = new System.Drawing.Size(100, 20);
             this.txtContactNo.TabIndex = 16;
@@ -208,7 +208,7 @@
             this.cbPrograms.FormattingEnabled = true;
             this.cbPrograms.Location = new System.Drawing.Point(428, 90);
             this.cbPrograms.Name = "cbPrograms";
-            this.cbPrograms.Size = new System.Drawing.Size(149, 21);
+            this.cbPrograms.Size = new System.Drawing.Size(172, 21);
             this.cbPrograms.TabIndex = 18;
             // 
             // cbGender
