@@ -47,7 +47,7 @@
             this.txtAge = new System.Windows.Forms.TextBox();
             this.cbPrograms = new System.Windows.Forms.ComboBox();
             this.cbGender = new System.Windows.Forms.ComboBox();
-            this.dateTimePickerBirthday = new System.Windows.Forms.DateTimePicker();
+            this.datePickerBirthday = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -159,6 +159,7 @@
             this.btnRegister.TabIndex = 11;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // txtStudentNo
             // 
@@ -218,12 +219,12 @@
             this.cbGender.Size = new System.Drawing.Size(121, 21);
             this.cbGender.TabIndex = 19;
             // 
-            // dateTimePickerBirthday
+            // datePickerBirthday
             // 
-            this.dateTimePickerBirthday.Location = new System.Drawing.Point(93, 253);
-            this.dateTimePickerBirthday.Name = "dateTimePickerBirthday";
-            this.dateTimePickerBirthday.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePickerBirthday.TabIndex = 20;
+            this.datePickerBirthday.Location = new System.Drawing.Point(93, 253);
+            this.datePickerBirthday.Name = "datePickerBirthday";
+            this.datePickerBirthday.Size = new System.Drawing.Size(200, 20);
+            this.datePickerBirthday.TabIndex = 20;
             // 
             // frmRegistration
             // 
@@ -231,7 +232,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(766, 450);
-            this.Controls.Add(this.dateTimePickerBirthday);
+            this.Controls.Add(this.datePickerBirthday);
             this.Controls.Add(this.cbGender);
             this.Controls.Add(this.cbPrograms);
             this.Controls.Add(this.txtAge);
@@ -253,6 +254,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmRegistration";
             this.Text = "OrganizationProfile";
+            this.Load += new System.EventHandler(this.frmRegistration_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,7 +281,7 @@
         private System.Windows.Forms.TextBox txtAge;
         private System.Windows.Forms.ComboBox cbPrograms;
         private System.Windows.Forms.ComboBox cbGender;
-        private System.Windows.Forms.DateTimePicker dateTimePickerBirthday;
+        private System.Windows.Forms.DateTimePicker datePickerBirthday;
     }
 }
 
