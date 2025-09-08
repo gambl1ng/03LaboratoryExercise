@@ -153,7 +153,7 @@
             // btnRegister
             // 
             this.btnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegister.Location = new System.Drawing.Point(252, 317);
+            this.btnRegister.Location = new System.Drawing.Point(279, 316);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(75, 23);
             this.btnRegister.TabIndex = 11;
@@ -208,7 +208,7 @@
             this.cbPrograms.FormattingEnabled = true;
             this.cbPrograms.Location = new System.Drawing.Point(428, 90);
             this.cbPrograms.Name = "cbPrograms";
-            this.cbPrograms.Size = new System.Drawing.Size(121, 21);
+            this.cbPrograms.Size = new System.Drawing.Size(149, 21);
             this.cbPrograms.TabIndex = 18;
             // 
             // cbGender
@@ -231,7 +231,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(766, 450);
+            this.ClientSize = new System.Drawing.Size(742, 397);
             this.Controls.Add(this.datePickerBirthday);
             this.Controls.Add(this.cbGender);
             this.Controls.Add(this.cbPrograms);

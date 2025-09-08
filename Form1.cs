@@ -37,6 +37,8 @@ namespace _03LaboratoryExercise
             {
                 cbPrograms.Items.Add(ListOfProgram[i].ToString());
             }
+                cbGender.Items.Add("Male");
+                cbGender.Items.Add("Female");
         }
 
         private void btnRegister_Click(object sender, EventArgs e)

@@ -12,10 +12,6 @@ namespace _03LaboratoryExercise
 {
     public partial class frmConfirmation: Form
     {
-        private string _FullName;
-        private int _Age;
-        private long ContactNo;
-        private long _StudentNo;
         public frmConfirmation()
         {
             InitializeComponent();
@@ -23,7 +19,7 @@ namespace _03LaboratoryExercise
 
         private void frmConfirmation_Load(object sender, EventArgs e)
         {
-            lblStudentNo.Text = StudentInformationClass.SetStudentNo.ToString();
+            labelStudentNo.Text = StudentInformationClass.SetStudentNo.ToString();
             lblName.Text = StudentInformationClass.SetFullName;
             lblProgram.Text = StudentInformationClass.SetProgram;
             lblBirthday.Text = StudentInformationClass.SetBirthday;
