@@ -103,7 +103,7 @@ public long StudentNumber(string studNum)
             }
             else
             {
-                throw new FormatException("The contact number format is incorrect. It must be 11 digits long only.");
+                throw new FormatException("The contact number format is incorrect. It must be 10 or 11 digits long only.");
             }
             return _ContactNo;
         }
